@@ -67,7 +67,7 @@ export const SignupForm = ({ className }: SignupFormProps) => {
       formData.append("email", values.email);
       formData.append("password", values.password);
 
-      const { data, success } = await signUp(formData);
+      const { success } = await signUp(formData);
       if (success) {
         toast.success(
           "Signed Up Successfully, Please Confirm Your Email Address",

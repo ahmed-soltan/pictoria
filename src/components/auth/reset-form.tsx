@@ -33,7 +33,9 @@ export const ResetForm = ({ className }: ResetFormProps) => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {};
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    console.log(data)
+  };
 
   return (
     <div className={cn("grid gap-6", className)}>

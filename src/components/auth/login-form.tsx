@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+import { useId, useState } from "react";
 import z from "zod";
 
 import {
@@ -13,12 +16,9 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
-import { cn } from "@/lib/utils";
-import { useId, useState } from "react";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 import { login } from "@/app/actions/auth-actions";
-import { Loader2 } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -42,7 +42,6 @@ export const LoginForm = ({ className }: LoginFormProps) => {
       password: "",
     },
   });
-  const router = useRouter();
   const toastId = useId();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
