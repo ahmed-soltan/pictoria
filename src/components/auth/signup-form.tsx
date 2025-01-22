@@ -1,5 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useId, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import z from "zod";
 
 import {
@@ -13,12 +17,9 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
-import { cn } from "@/lib/utils";
 import { signUp } from "@/app/actions/auth-actions";
-import { useId, useState } from "react";
-import { Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { redirect, useRouter } from "next/navigation";
+
+import { cn } from "@/lib/utils";
 
 const formSchema = z
   .object({
